@@ -10,7 +10,13 @@ const initialState = {
 export const getFiles = createAsyncThunk(
   "files/getFiles",
   async (name = "", { dispatch }) => {
-    const files = await fetchFiles(name);
+    let nameWithExtension = name.trim();
+    if (nameWithExtension) {
+      const extension = nameWithExtension.split(".").pop();
+      // in case the name contains a . eg: test.3434
+      if (extension !== "csv") nameWithExtension += ".csv";
+    }
+    const files = await fetchFiles(nameWithExtension);
     return files;
   }
 );
@@ -19,15 +25,15 @@ const filesSlice = createSlice({
   name: "files",
   initialState,
   reducers: {
-    setFiles(state, action) {
+    setFiles (state, action) {
       state.files = action.payload;
     },
 
-    setIsLoading(state, action) {
+    setIsLoading (state, action) {
       state.isLoading = action.payload;
     }
   },
-  extraReducers(builder) {
+  extraReducers (builder) {
     builder
       .addCase(getFiles.pending, (state, _action) => {
         state.isLoading = true;

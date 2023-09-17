@@ -40,6 +40,7 @@ const FilesTableView = () => {
             fields={fields}
             onSubmit={handleSubmit}
             submitButtonText="Search"
+            resetButtonText="Reset Search"
             submitDisabled={filesState.isLoading}
           />
         </Col>
