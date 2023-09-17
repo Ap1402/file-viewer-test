@@ -44,13 +44,13 @@ To install the project and its dependencies, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone TODO ADD REPO URL
+   git clone https://gitlab.com/andres.pintosantiso/file-viewer-test
    ```
 
 2. Go the project main folder:
 
    ```bash
-   cd project-folder
+   cd file-viewer-test
 
    ```
 
