@@ -1,0 +1,18 @@
+version: "3"
+name: "csv-file-viewer"
+services:
+  front:
+    container_name: file-viewer-react-app
+    build:
+      context: ./front
+    ports:
+      - "3000:3000"
+    depends_on:
+      - back
+  back:
+    container_name: file-downloader-node-app
+    build:
+      context: ./back
+    restart: on-failure
+    ports:
+      - "3005:3005"
