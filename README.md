@@ -29,6 +29,11 @@ Frontend: Receives and Query data from backend to show the files in a table.
       - [Example - 200 OK No file found](#example---200-ok-no-file-found)
         - [Request](#request-2)
         - [Response](#response-2)
+  - [Tests](#tests)
+    - [Backend](#backend-1)
+    - [Frontend](#frontend-1)
+  - [Troubleshoots](#troubleshoots)
+    - [The app is not starting up.](#the-app-is-not-starting-up)
 
 ## Prerequisites
 
@@ -133,6 +138,7 @@ This API endpoint allows you to retrieve data from CSV files. It is accessible a
 GET localhost:3005/api/files/data
 
 ##### Response
+
 ```json
 [
   {
@@ -165,6 +171,7 @@ GET localhost:3005/api/files/data
 GET localhost:3005/api/files/data?fileName=test2.csv
 
 ##### Response
+
 ```json
 [
   {
@@ -187,6 +194,52 @@ GET localhost:3005/api/files/data?fileName=test2.csv
 GET localhost:3005/api/files/data?fileName=nofile.csv
 
 ##### Response
+
 ```json
 []
 ```
+
+## Tests
+
+### Backend
+
+First, check if you are in the "back" folder. If not, run
+
+```bash
+cd back
+```
+
+You can run tests by using the comman below. This will also run standard style checking before running the actual tests, so you should fix those issues before running any tests.
+
+```bash
+npm run tests
+```
+
+If you want to disable the standard check before runnning tests.
+
+1. Go to package.json
+2. Disable change this line
+
+```
+"test": "standard && mocha"
+```
+
+to:
+
+```
+"test": "mocha"
+```
+
+### Frontend
+
+Not implemented.
+
+## Troubleshoots
+
+### The app is not starting up.
+
+Usually, this means some of the ports are being used.
+Check if these ports are being used:
+
+- 3005
+- 3000
