@@ -49,7 +49,7 @@ To install the project and its dependencies, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://gitlab.com/andres.pintosantiso/file-viewer-test
+   git clone https://github.com/Ap1402/file-viewer-test
    ```
 
 2. Go the project main folder:
